@@ -1,27 +1,24 @@
 package org.mizzoucs3330team.assignment_02;
 
-public class MiddleEarthCharacter {
-	private String name;
-	private double health;
-	private double power;
-	
+public abstract class MiddleEarthCharacter {
+	protected String name;
+	protected double health;
+	protected double power;
+
 	public MiddleEarthCharacter(String n, double h, double p) {
 		name = n;
 		health = h;
 		power = p;
 	}
-	
-	// I am assuming every method is private until it is determined otherwise.
-	// Feel free to change them to public if you need.
-	
-	// Returns true if attack was successful, otherwise false
-	private boolean attack(MiddleEarthCharacter target) {
-		// not implemented.
-		
-		return false;
-	}
-	
-	private String getRace() {
-		return "not implemented.--abstract character";
+
+	abstract String getRace();
+
+	abstract boolean attack(MiddleEarthCharacter target);
+
+	public void displayInfo() {
+		System.out.println("<<" + name + " Status>>");
+		System.out.println("Health: " + health);
+		System.out.println("Power:  " + power);
+		System.out.println("<<>>");
 	}
 }
