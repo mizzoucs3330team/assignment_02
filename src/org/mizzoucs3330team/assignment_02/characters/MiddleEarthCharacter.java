@@ -1,4 +1,4 @@
-package org.mizzoucs3330team.assignment_02;
+package org.mizzoucs3330team.assignment_02.characters;
 
 /**
  * Abstract class representing a Middle Earth character.

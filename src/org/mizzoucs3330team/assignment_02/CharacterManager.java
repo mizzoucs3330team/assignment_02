@@ -1,5 +1,7 @@
 package org.mizzoucs3330team.assignment_02;
 
+import org.mizzoucs3330team.assignment_02.characters.MiddleEarthCharacter;
+
 public class CharacterManager {
 	private MiddleEarthCharacter[] characters = { null };
 
