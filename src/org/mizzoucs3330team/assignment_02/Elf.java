@@ -1,10 +1,16 @@
 package org.mizzoucs3330team.assignment_02;
 
 public class Elf extends MiddleEarthCharacter {
+
 	public Elf(String n, double h, double p) {
 		super(n, h, p);
 	}
 
+	/*
+	 * A javadoc comment should not be necessary for these methods because
+	 * subclasses inherit the javadoc from the superclass. Though it may be
+	 * advisable that we confirm this with Professor.
+	 */
 	public String getRace() {
 		return "Elf";
 	}
