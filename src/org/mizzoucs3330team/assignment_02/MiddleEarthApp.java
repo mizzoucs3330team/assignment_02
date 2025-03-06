@@ -9,10 +9,6 @@ public class MiddleEarthApp {
 	 */
 	public static void main(String[] args) {
 		MiddleEarthCouncil council = MiddleEarthCouncil.getInstance();
-
-		while (true) {
-			Menu m = new Menu(council.getCharacterManager());
-		}
+		Menu m = new Menu(council.getCharacterManager());
 	}
-
 }
