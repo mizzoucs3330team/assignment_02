@@ -30,10 +30,11 @@ public class Elf extends MiddleEarthCharacter {
 				break;
 		}
 
-		double damage = mult * power;
+		double dmg = mult * power;
 
-		// TODO
-
+		if (target.damage(dmg) > 0) {
+			return true;
+		}
 		return false;
 	}
 }
