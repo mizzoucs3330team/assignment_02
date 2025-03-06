@@ -23,6 +23,7 @@ public class CharacterManager {
 	 */
 	private boolean addCharacter(MiddleEarthCharacter c) {
 		characters[size] = c;
+		size++;
 		return true; // assuming true
 	}
 
@@ -53,14 +54,17 @@ public class CharacterManager {
 	 */
 	private boolean deleteCharacter(MiddleEarthCharacter c) {
 		// TODO
+		size--;
 		return false;
 	}
 
 	/**
 	 * Display all characters' information.
 	 */
-	private void displayAllCharacters() {
-		// use displayInfo() to display characters
+	public void displayAllCharacters() {
+		for (int i = 0; i < size; i++) {
+			characters[i].displayInfo();
+		}
 	}
 
 }
