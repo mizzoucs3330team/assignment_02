@@ -2,6 +2,8 @@ package org.mizzoucs3330team.assignment_02;
 
 import java.util.Scanner;
 
+import org.mizzoucs3330team.assignment_02.characters.MiddleEarthCharacter;
+
 public class Menu {
 
 	public Menu(CharacterManager cm) {
@@ -15,19 +17,36 @@ public class Menu {
 		int sel = s.nextInt();
 
 		switch (sel) {
-			case 1:
+			case 1: {
 				System.out.println("<<< Add a Character >>>");
 				break;
-			case 2:
+			}
+			case 2: {
 				System.out.println("<<< View All Characters >>>");
 				cm.displayAllCharacters();
 				break;
+			}
 			case 3: {
 				System.out.println("<<< Update a Character >>>");
 				cm.displayAllCharacters();
 
 				System.out.print("Enter Character Index: ");
 				int i = s.nextInt();
+
+				MiddleEarthCharacter c = cm.getCharacter(i);
+
+				System.out.print("New Name: ");
+				String n = s.nextLine();
+
+				System.out.print("New Health: ");
+				double h = s.nextDouble();
+				if (h < 0) {
+					return;
+				}
+
+				System.out.print("New Power: ");
+				double p = s.nextDouble();
+				// run checks
 
 				break;
 			}
@@ -39,6 +58,12 @@ public class Menu {
 				int i = s.nextInt();
 
 				cm.deleteCharacter(cm.getCharacter(i));
+				break;
+			}
+			case 5: {
+				break;
+			}
+			case 6: {
 				break;
 			}
 		}

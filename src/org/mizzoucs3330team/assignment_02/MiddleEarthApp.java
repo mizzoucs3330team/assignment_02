@@ -8,7 +8,11 @@ public class MiddleEarthApp {
 	 * @param args Arguments
 	 */
 	public static void main(String[] args) {
-		Menu m = new Menu();
+		MiddleEarthCouncil council = MiddleEarthCouncil.getInstance();
+
+		while (true) {
+			Menu m = new Menu(cm);
+		}
 	}
 
 }
