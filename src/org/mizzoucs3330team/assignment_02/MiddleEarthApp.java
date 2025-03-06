@@ -11,7 +11,7 @@ public class MiddleEarthApp {
 		MiddleEarthCouncil council = MiddleEarthCouncil.getInstance();
 
 		while (true) {
-			Menu m = new Menu(cm);
+			Menu m = new Menu(council.getCharacterManager());
 		}
 	}
 
