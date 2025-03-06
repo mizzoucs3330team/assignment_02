@@ -22,8 +22,18 @@ public class CharacterManager {
 	 *         assuming that we should return true on success.
 	 */
 	private boolean addCharacter(MiddleEarthCharacter c) {
+		//detect if array is full; if so, double array size
+		if (characters.length >= size){
+			MiddleEarthCharacter[] newArray = new MiddleEarthCharacter[characters.length * 2];
+			System.arraycopy(characters, 0, newArray, 0, characters.length);
+			characters = newArray;
+		}
+		//add character
 		characters[size] = c;
-		return true; // assuming true
+
+		//increment size
+		size++;
+		return true; // assuming always successful
 	}
 
 	/**
