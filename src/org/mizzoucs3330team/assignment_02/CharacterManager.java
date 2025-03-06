@@ -46,8 +46,23 @@ public class CharacterManager {
 	 *         only operation success, but also an actual data change.
 	 */
 	private boolean updateCharacter(MiddleEarthCharacter c, String name, int health, int power) {
-		// TODO
-		return false;
+		//if c is invalid return false
+		if (c == null){
+			return false;
+		}
+
+		//check for info to update
+		if (c.name != name || c.health != health || c.power != power){
+			//update charater info
+			c.name = name;
+			c.health = health;
+			c.power = power;
+		}
+		//fail; no unique info; no change
+		else return false 
+
+		//success
+		return true;
 	}
 
 	/**
