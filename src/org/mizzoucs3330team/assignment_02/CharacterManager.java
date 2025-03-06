@@ -22,13 +22,13 @@ public class CharacterManager {
 	 *         assuming that we should return true on success.
 	 */
 	private boolean addCharacter(MiddleEarthCharacter c) {
-		//detect if array is full; if so, double array size
-		if (characters.length >= size){
+		// detect if array is full; if so, double array size
+		if (characters.length >= size) {
 			MiddleEarthCharacter[] newArray = new MiddleEarthCharacter[characters.length * 2];
 			System.arraycopy(characters, 0, newArray, 0, characters.length);
 			characters = newArray;
 		}
-		//add character
+		// add character
 		characters[size] = c;
 		size++;
 		return true; // assuming true
@@ -59,7 +59,7 @@ public class CharacterManager {
 	 *         should just return true on success, and return false on failure, i.e.
 	 *         when the character does not exist in the array.
 	 */
-	private boolean deleteCharacter(MiddleEarthCharacter c) {
+	public boolean deleteCharacter(MiddleEarthCharacter c) {
 		// TODO
 		size--;
 		return false;
