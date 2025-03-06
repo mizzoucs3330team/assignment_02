@@ -46,8 +46,35 @@ public class CharacterManager {
 	 *         only operation success, but also an actual data change.
 	 */
 	private boolean updateCharacter(MiddleEarthCharacter c, String name, int health, int power) {
-		// TODO
-		return false;
+		//if c is invalid return false
+		if (c == null){
+			return false;
+		}
+
+		//check for info to update
+		String characterName = c.getName();
+		double characterPower = c.getPower();
+		double characterHealth = c.getHealth();
+		
+		if(characterName != name)
+		{
+			c.setName(name);
+		}
+		
+		else if(characterHealth != health)
+		{
+			c.setHealth(health);
+		}
+		else if(characterPower != power)
+		{
+			c.setPower(power);
+		}
+		else {
+			return false;
+		}
+		return true;
+		//fail; no unique info; no change
+	
 	}
 
 	/**
@@ -59,10 +86,42 @@ public class CharacterManager {
 	 *         should just return true on success, and return false on failure, i.e.
 	 *         when the character does not exist in the array.
 	 */
+<<<<<<< HEAD
 	public boolean deleteCharacter(MiddleEarthCharacter c) {
 		// TODO
+=======
+	private boolean deleteCharacter(MiddleEarthCharacter c) {
+		//if c is invalid return false
+		if (c == null){
+			return false;
+		}
+
+		//discover c
+		int index = -1;
+		for(int i = 0; i < size; i++){
+			if (characters[i] != c){
+				//found character
+				index = i;
+				break;
+			}
+		}
+
+		//if character doesn't exist return false
+		if (index == -1){
+			return false;
+		}
+
+		//else shift characters, overriding c
+		for(int i = index; i < size-1; i++){
+			characters[i] = characters[i+1];
+		}
+
+		characters[size-1] = null;
+
+		//reduce size and success
+>>>>>>> 1af56bebebc6426e8abb00cc0efd7474f6904f8b
 		size--;
-		return false;
+		return true;
 	}
 
 	/**

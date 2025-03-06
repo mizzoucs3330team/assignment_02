@@ -88,5 +88,34 @@ public abstract class MiddleEarthCharacter {
 	public double getPower() {
 		return power;
 	}
+	
+	/**
+	 * 
+	 * @param name The name string to be applied to the character object.
+	 * 
+	 */
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+	
+	/**
+	 *
+	 * 
+	 * @param health The health value to be applied to the character object. Do not use for attacking. use damage()
+	 */
+	public void setHealth(double health)
+	{
+		this.health = health;
+	}
+	
+	/**
+	 * 
+	 * @param power The power value to be applied to the character object.
+	 */
+	public void setPower(double power)
+	{
+		this.power = power;
+	}
 
 }

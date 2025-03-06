@@ -25,6 +25,10 @@ public class Menu {
 			case 3: {
 				System.out.println("<<< Update a Character >>>");
 				cm.displayAllCharacters();
+
+				System.out.print("Enter Character Index: ");
+				int i = s.nextInt();
+
 				break;
 			}
 			case 4: {
