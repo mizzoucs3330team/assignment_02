@@ -55,6 +55,10 @@ public abstract class MiddleEarthCharacter {
 	 * @return Returns true if damage was inflicted, otherwise false.
 	 */
 	public boolean damage(double dmg) {
+		if (dmg <= 0) {
+			return false;
+		}
+
 		health -= dmg;
 
 		if (health < 0) {
