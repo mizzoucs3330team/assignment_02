@@ -75,9 +75,36 @@ public class CharacterManager {
 	 *         when the character does not exist in the array.
 	 */
 	private boolean deleteCharacter(MiddleEarthCharacter c) {
-		// TODO
+		//if c is invalid return false
+		if (c == null){
+			return false;
+		}
+
+		//discover c
+		int index = -1;
+		for(int i = 0; i < size; i++){
+			if (characters[i] != c){
+				//found character
+				index = i;
+				break;
+			}
+		}
+
+		//if character doesn't exist return false
+		if (index == -1){
+			return false;
+		}
+
+		//else shift characters, overriding c
+		for(int i = index; i < size-1; i++){
+			characters[i] = characters[i+1];
+		}
+
+		characters[size-1] = null;
+
+		//reduce size and success
 		size--;
-		return false;
+		return true;
 	}
 
 	/**
