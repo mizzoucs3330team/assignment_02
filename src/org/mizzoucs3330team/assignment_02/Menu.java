@@ -2,13 +2,18 @@ package org.mizzoucs3330team.assignment_02;
 
 import java.util.Scanner;
 
+import org.mizzoucs3330team.assignment_02.characters.Dwarf;
+import org.mizzoucs3330team.assignment_02.characters.Elf;
+import org.mizzoucs3330team.assignment_02.characters.Human;
 import org.mizzoucs3330team.assignment_02.characters.MiddleEarthCharacter;
+import org.mizzoucs3330team.assignment_02.characters.Orc;
+import org.mizzoucs3330team.assignment_02.characters.Wizard;
 
 public class Menu {
 
 	public Menu(CharacterManager cm) {
 		boolean online = true;
-		while (online){
+		while (online) {
 			System.out.println("<< MENU >>");
 			System.out.println("1. Add a New Character");
 			System.out.println("2. View All Characters");
@@ -23,19 +28,50 @@ public class Menu {
 			switch (sel) {
 				case 1: {
 					System.out.println("<<< Add a Character >>>");
-					System.out.println("Input character name, hp, and power separated by a space for each:");
-					String name = s.next();
-					Double hp = s.nextDouble();
-					Double power = s.nextDouble();
 
-					MiddleEarthCharacter character = new MiddleEarthCharacter(name, hp, power);
+					System.out.print("Race: ");
+					String race = s.next();
 
-					if(cm.addCharacter(character)){
-						System.out.println("Character Successfully Created!");
+					System.out.print("Name: ");
+					String n = s.nextLine();
+
+					System.out.print("Health: ");
+					Double h = s.nextDouble();
+
+					System.out.print("Power: ");
+					Double p = s.nextDouble();
+
+					MiddleEarthCharacter c = null;
+
+					switch (race) {
+						case "Elf":
+							c = new Elf(n, h, p);
+							break;
+						case "Dwarf":
+							c = new Dwarf(n, h, p);
+							break;
+						case "Human":
+							c = new Human(n, h, p);
+							break;
+						case "Orc":
+							c = new Orc(n, h, p);
+							break;
+						case "Wizard":
+							c = new Wizard(n, h, p);
+							break;
 					}
-					else{
+
+					if (c == null) {
+						System.out.println("Invalid race.");
+						return;
+					}
+
+					if (cm.addCharacter(c)) {
+						System.out.println("Character Successfully Created!");
+					} else {
 						System.out.println("Character Creation Failed");
 					}
+
 					break;
 				}
 				case 2: {
@@ -47,10 +83,10 @@ public class Menu {
 					System.out.println("<<< Update a Character >>>");
 					cm.displayAllCharacters();
 
-					System.out.print("Enter Character Index: ");
-					int i = s.nextInt();
+					System.out.print("Enter Character Name: ");
+					String oldN = s.nextLine();
 
-					MiddleEarthCharacter c = cm.getCharacter(i);
+					MiddleEarthCharacter c = cm.getCharacter(oldN);
 
 					System.out.print("New Name: ");
 					String n = s.nextLine();
@@ -71,20 +107,28 @@ public class Menu {
 					System.out.println("<<< Delete a Character >>>");
 					cm.displayAllCharacters();
 
-					System.out.print("Enter Character Index: ");
-					int i = s.nextInt();
+					System.out.print("Enter Character Name: ");
+					String n = s.nextLine();
+					MiddleEarthCharacter c = cm.getCharacter(n);
 
-					cm.deleteCharacter(cm.getCharacter(i));
+					cm.deleteCharacter(c);
 					break;
 				}
 				case 5: {
-					for(int i=0; i < size-1; i++){
-						System.out.println("<<< Attacking Characters >>>");
-						MiddleEarthCharacter c_attacker = cm.getCharacter(i);
-						if (i != size-2) MiddleEarthCharacter c_attack = cm.getCharacter(i+1);
-						else MiddleEarthCharacter c_attack = cm.getCharacter(0);
-						c_attacker.attack(c_attack);
+					System.out.println("<<< Attacking Characters >>>");
+
+					int size = cm.getSize();
+
+					for (int i = 0; i < size - 2; i++) {
+						MiddleEarthCharacter attacker = cm.getCharacterByIndex(i);
+
+						MiddleEarthCharacter v = cm.getCharacterByIndex(i + 1);
+
+						attacker.attack(v);
 					}
+
+					cm.getCharacterByIndex(size - 1).attack(cm.getCharacterByIndex(0));
+
 					break;
 				}
 				case 6: {

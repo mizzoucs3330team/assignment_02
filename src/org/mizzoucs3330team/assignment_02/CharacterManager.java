@@ -64,6 +64,15 @@ public class CharacterManager {
 	}
 
 	/**
+	 * Get number of characters.
+	 * 
+	 * @return Returns number of characters.
+	 */
+	public int getSize() {
+		return characters.length;
+	}
+
+	/**
 	 * Delete a character.
 	 * 
 	 * @param c The character to be deleted.
@@ -121,13 +130,32 @@ public class CharacterManager {
 	 * 
 	 * @return Returns the desired character.
 	 */
-	public MiddleEarthCharacter getCharacterByName(String name) {
+	public MiddleEarthCharacter getCharacter(String name) {
 		for (int i = 0; i < characters.length; i++) {
 			String characterName = characters[i].getName();
 			if (characterName == name) {
 				return characters[i];
 			}
 		}
+		return null;
+	}
+
+	/**
+	 * Get a character via its index.
+	 * 
+	 * @param index The index of the character to get.
+	 * 
+	 * @return Returns the character.
+	 */
+	public MiddleEarthCharacter getCharacterByIndex(int index) {
+		if (characters != null) {
+			return characters[index];
+		}
+
+		if (index < 0) {
+			return null;
+		}
+
 		return null;
 	}
 
