@@ -52,18 +52,16 @@ public abstract class MiddleEarthCharacter {
 	 * 
 	 * @param amt The amount of damage to be inflicted.
 	 * 
-	 * @return Returns the final amount of damage done.
+	 * @return Returns true if damage was inflicted, otherwise false.
 	 */
-	public double damage(double dmg) {
+	public boolean damage(double dmg) {
 		health -= dmg;
 
 		if (health < 0) {
-			double fdmg = dmg + health;
 			health = 0;
-			return fdmg;
 		}
 
-		return dmg;
+		return true;
 	}
 
 	/**

@@ -32,9 +32,6 @@ public class Elf extends MiddleEarthCharacter {
 
 		double dmg = mult * power;
 
-		if (target.damage(dmg) > 0) {
-			return true;
-		}
-		return false;
+		return target.damage(dmg);
 	}
 }
