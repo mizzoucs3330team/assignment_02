@@ -128,15 +128,14 @@ public class CharacterManager {
 		}
 	}
 	
-	public MiddleEarthCharacter getCharacterByIndex(int index)
+	public MiddleEarthCharacter getCharacterByName(String name)
 	{
-		if(characters!=null) 
+		for(int i = 0; i < characters.length; i++)
 		{
-			return characters[index];
-		}
-		if(index < 0)
-		{
-			return null;
+			String characterName = characters[i].getName();
+			if(characterName == name) 
+			{
+				return characters[i];			}
 		}
 		return null;
 	}
