@@ -50,18 +50,43 @@ public abstract class MiddleEarthCharacter {
 	/**
 	 * Damage this character.
 	 * 
-	 * @param amt
+	 * @param amt The amount of damage to be inflicted.
 	 * 
-	 * @return Returns the final amount of damage done.
+	 * @return Returns true if damage was inflicted, otherwise false.
 	 */
-	public double damage(double amt) {
-		health -= amt;
+	public boolean damage(double dmg) {
+		if (dmg <= 0) {
+			return false;
+		}
+
+		health -= dmg;
 
 		if (health < 0) {
 			health = 0;
 		}
 
-		return amt;
+		return true;
+	}
+
+	/**
+	 * @return Returns this character's name.
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @return Returns this character's health.
+	 */
+	public double getHealth() {
+		return health;
+	}
+
+	/**
+	 * @return Returns this character's power.
+	 */
+	public double getPower() {
+		return power;
 	}
 
 }

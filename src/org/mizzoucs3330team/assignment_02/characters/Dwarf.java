@@ -1,8 +1,8 @@
 package org.mizzoucs3330team.assignment_02.characters;
 
-public class Elf extends MiddleEarthCharacter {
+public class Dwarf extends MiddleEarthCharacter {
 
-	public Elf(String n, double h, double p) {
+	public Dwarf(String n, double h, double p) {
 		super(n, h, p);
 	}
 
@@ -12,20 +12,20 @@ public class Elf extends MiddleEarthCharacter {
 	 * advisable that we confirm this with Professor.
 	 */
 	public String getRace() {
-		return "Elf";
+		return "Dwarf";
 	}
 
 	public boolean attack(MiddleEarthCharacter target) {
 		double mult = 1.0d;
 
 		switch (target.getRace()) {
-			case "Orc":
+			case "Elf":
 				mult = 1.5d;
 				break;
-			case "Dwarf":
+			case "Wizard":
 				mult = 0.0d;
 				break;
-			case "Elf":
+			case "Dwarf":
 				mult = 0.0d;
 				break;
 		}

@@ -1,8 +1,9 @@
 package org.mizzoucs3330team.assignment_02.characters;
 
-public class Elf extends MiddleEarthCharacter {
+// Maybe this should inherit from Human? Are Wizards not human?
+public class Wizard extends MiddleEarthCharacter {
 
-	public Elf(String n, double h, double p) {
+	public Wizard(String n, double h, double p) {
 		super(n, h, p);
 	}
 
@@ -12,20 +13,20 @@ public class Elf extends MiddleEarthCharacter {
 	 * advisable that we confirm this with Professor.
 	 */
 	public String getRace() {
-		return "Elf";
+		return "Wizard";
 	}
 
 	public boolean attack(MiddleEarthCharacter target) {
 		double mult = 1.0d;
 
 		switch (target.getRace()) {
-			case "Orc":
+			case "Dwarf":
 				mult = 1.5d;
 				break;
-			case "Dwarf":
+			case "Human":
 				mult = 0.0d;
 				break;
-			case "Elf":
+			case "Wizard":
 				mult = 0.0d;
 				break;
 		}
