@@ -46,4 +46,22 @@ public abstract class MiddleEarthCharacter {
 		System.out.println("Power:  " + power);
 		System.out.println("<<>>");
 	}
+
+	/**
+	 * Damage this character.
+	 * 
+	 * @param amt
+	 * 
+	 * @return Returns the final amount of damage done.
+	 */
+	public double damage(double amt) {
+		health -= amt;
+
+		if (health < 0) {
+			health = 0;
+		}
+
+		return amt;
+	}
+
 }
