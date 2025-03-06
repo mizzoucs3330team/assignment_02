@@ -52,17 +52,29 @@ public class CharacterManager {
 		}
 
 		//check for info to update
-		if (c.name != name || c.health != health || c.power != power){
-			//update charater info
-			c.name = name;
-			c.health = health;
-			c.power = power;
+		String characterName = c.getName();
+		double characterPower = c.getPower();
+		double characterHealth = c.getHealth();
+		
+		if(characterName != name)
+		{
+			c.setName(name);
 		}
-		//fail; no unique info; no change
-		else return false 
-
-		//success
+		
+		else if(characterHealth != health)
+		{
+			c.setHealth(health);
+		}
+		else if(characterPower != power)
+		{
+			c.setPower(power);
+		}
+		else {
+			return false;
+		}
 		return true;
+		//fail; no unique info; no change
+	
 	}
 
 	/**
