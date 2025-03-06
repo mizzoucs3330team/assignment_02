@@ -86,10 +86,6 @@ public class CharacterManager {
 	 *         should just return true on success, and return false on failure, i.e.
 	 *         when the character does not exist in the array.
 	 */
-<<<<<<< HEAD
-	public boolean deleteCharacter(MiddleEarthCharacter c) {
-		// TODO
-=======
 	private boolean deleteCharacter(MiddleEarthCharacter c) {
 		//if c is invalid return false
 		if (c == null){
@@ -119,7 +115,6 @@ public class CharacterManager {
 		characters[size-1] = null;
 
 		//reduce size and success
->>>>>>> 1af56bebebc6426e8abb00cc0efd7474f6904f8b
 		size--;
 		return true;
 	}
@@ -131,6 +126,19 @@ public class CharacterManager {
 		for (int i = 0; i < size; i++) {
 			characters[i].displayInfo();
 		}
+	}
+	
+	public MiddleEarthCharacter getCharacterByIndex(int index)
+	{
+		if(characters!=null) 
+		{
+			return characters[index];
+		}
+		if(index < 0)
+		{
+			return null;
+		}
+		return null;
 	}
 
 }
